@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teste Mokaly</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <img class="logo" id="logo" src="src/mokaly_logo_white.svg" alt="logo da Mokaly" />
+      <button onclick="repetir()" class="botao-repetir" id="botao">Repetir animação</button>
+      <div class="avatares" id="avatares">
+        <img class="avatar" src="src/mokaly-avatar-cup-2.png" alt="foto do avatar" />
+        <img class="avatar" src="src/mokaly-avatar-cup-3.png" alt="foto do avatar" />
+        <img class="avatar" src="src/mokaly-avatar-cup-4.png" alt="foto do avatar" />
+        <img class="avatar" src="src/mokaly-avatar-cup-5.png" alt="foto do avatar" />
+        <img class="avatar" src="src/mokaly-avatar-cup-6.png" alt="foto do avatar" />
+      </div>
+    </div>
+  </body>
+  <script>
+    setTimeout(function () {
+      document.getElementById("logo").style.display = "none";
+      document.getElementById("avatares").style.display = "initial";
+      for (let i = 0; i <= 4; i++) {
+        document.getElementsByClassName("avatar")[i].style.left = Math.random() * 95 + "vw";
+      }
+      document.getElementsByClassName("avatar")[0].style.display = "initial";
+      let time = 1;
+      let interval = setInterval(function () {
+        if (time <= 4) {
+          document.getElementsByClassName("avatar")[time].style.display = "initial";
+          time++;
+        } else {
+          setTimeout(function () {
+            let audio = new Audio("../midia/matrix_room_enter.mp3");
+            audio.play();
+            document.getElementById("avatares").style.display = "none";
+            document.getElementById("logo").style.display = "initial";
+            document.getElementById("botao").style.display = "initial";
+          }, 700);
+          clearInterval(interval);
+        }
+      }, 2000);
+    }, 4000);
+
+    function repetir() {
+      document.getElementById("logo").style.display = "none";
+      document.getElementById("botao").style.display = "none";
+      document.getElementById("avatares").style.display = "initial";
+      for (let i = 0; i <= 4; i++) {
+        document.getElementsByClassName("avatar")[i].style.display = "none";
+        document.getElementsByClassName("avatar")[i].style.left = Math.random() * 100 + "vw";
+      }
+      document.getElementsByClassName("avatar")[0].style.display = "initial";
+      let time = 1;
+      let interval = setInterval(function () {
+        if (time <= 4) {
+          document.getElementsByClassName("avatar")[time].style.display = "initial";
+          console.log("oi");
+          time++;
+        } else {
+          setTimeout(function () {
+            let audio = new Audio("../midia/matrix_room_enter.mp3");
+            audio.play();
+            document.getElementById("avatares").style.display = "none";
+            document.getElementById("logo").style.display = "initial";
+            document.getElementById("botao").style.display = "initial";
+          }, 700);
+
+          clearInterval(interval);
+        }
+      }, 2000);
+    }
+  </script>
+</html>
