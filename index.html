@@ -35,7 +35,7 @@
           time++;
         } else {
           setTimeout(function () {
-            let audio = new Audio("../midia/matrix_room_enter.mp3");
+            let audio = new Audio("../src/som.mp3");
             audio.play();
             document.getElementById("avatares").style.display = "none";
             document.getElementById("logo").style.display = "initial";
@@ -59,11 +59,10 @@
       let interval = setInterval(function () {
         if (time <= 4) {
           document.getElementsByClassName("avatar")[time].style.display = "initial";
-          console.log("oi");
           time++;
         } else {
           setTimeout(function () {
-            let audio = new Audio("../midia/matrix_room_enter.mp3");
+            let audio = new Audio("../src/som.mp3");
             audio.play();
             document.getElementById("avatares").style.display = "none";
             document.getElementById("logo").style.display = "initial";
